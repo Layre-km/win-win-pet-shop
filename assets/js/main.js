@@ -1,4 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.brand').forEach((brand) => {
+    brand.setAttribute('aria-label', 'Win Win Pet Shop');
+    brand.innerHTML = '<img class="brand-logo" src="assets/images/logo-win-win-petshop.png" alt="Win Win Petshop">';
+  });
   const nav = document.querySelector('.main-nav');
   let button = document.querySelector('.menu-button');
   if (nav && !button) {
