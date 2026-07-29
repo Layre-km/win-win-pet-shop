@@ -1,24 +1,25 @@
 # Win Win Pet Shop
 
-Site estático, multipágina e sem dependências para a Win Win Pet Shop, em Maputo, Moçambique.
+Catálogo multipágina da Win Win Pet Shop, em Matola, Moçambique. O site apresenta as 34 linhas do relatório de stock de 19 de Julho de 2026 em 27 famílias de produto e encaminha as encomendas para o WhatsApp.
 
 ## Desenvolvimento
 
-Não é necessário PHP, Node.js ou qualquer processo de compilação. Abra `index.html` directamente no navegador ou sirva esta pasta com qualquer servidor estático (por exemplo, o Live Server do VS Code).
+```powershell
+npm.cmd run dev
+```
 
-Estrutura principal:
+O servidor local fica disponível em `http://127.0.0.1:8080`.
 
-- `*.html` — páginas estáticas e semânticas;
-- `assets/css/style.css` — estilos responsivos;
-- `assets/js/main.js` — menu móvel e animações subtis;
-- `assets/images/` — imagem e favicon da marca;
-- `sitemap.xml` e `robots.txt` — base de SEO.
+## Validação e build
 
-## Antes de publicar
+```powershell
+npm.cmd run validate
+npm.cmd run build
+```
 
-- Adicione o endereço completo, horário, telefone e WhatsApp reais em `contactos.php` e `localizacao.php`.
-- Confirme que o domínio oficial é `winwinpetshop.co.mz`; se for diferente, faça uma substituição global desse URL nos meta tags e em `sitemap.xml`.
-- Ligue o formulário de contacto a Formspree, Netlify Forms ou uma API segura; nesta versão ele é apenas visual.
-- Após publicação, submeta o sitemap ao Google Search Console e complete o Perfil de Empresa no Google com dados consistentes.
+- `assets/js/catalog.js` contém o catálogo agrupado, as opções, os preços por unidade e as quantidades.
+- `scripts/validate.mjs` reconcilia famílias, linhas de stock, valor calculado e referências locais.
+- `dist/client` contém os ficheiros públicos.
+- `dist/server/index.js` é o entrypoint do Worker para alojamento.
 
-O site usa metadados, Open Graph, dados estruturados `PetStore`, HTML semântico, URLs canónicos, mapa do site e `robots.txt` como fundação de SEO. Nenhum site pode garantir a primeira posição no Google: relevância local, perfil de empresa, avaliações e conteúdo real também contam.
+O domínio personalizado ainda não foi definido. Quando existir, adicione URLs canónicas e gere um sitemap com esse domínio antes de o submeter ao Google Search Console.

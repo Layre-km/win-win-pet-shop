@@ -1,0 +1,12 @@
+{
+  "name": "win-win-pet-shop",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/dev-server.mjs",
+    "build": "node scripts/build.mjs",
+    "start": "node scripts/dev-server.mjs",
+    "validate": "node scripts/validate.mjs"
+  }
+}

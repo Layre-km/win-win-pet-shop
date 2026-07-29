@@ -1,4 +1,2 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://winwinpetshop.co.mz/sitemap.xml

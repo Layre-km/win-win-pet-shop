@@ -1,55 +1,84 @@
 <!doctype html>
 <html lang="pt-MZ">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <title>Contactos | Win Win Pet Shop em Maputo</title>
-        <meta name="description" content="Entre em contacto com a Win Win Pet Shop em Maputo para saber sobre rações, acessórios, brinquedos e a nossa localização.">
-        <link rel="canonical" href="https://winwinpetshop.co.mz/contactos.html">
-        <link rel="icon" href="assets/images/favicon.svg">
-        <link rel="stylesheet" href="assets/css/style.css">
-        <link rel="stylesheet" href="assets/css/brand.css">
-        <link rel="stylesheet" href="assets/css/mobile.css">
-    </head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contactos e encomendas | Win Win Pet Shop</title>
+  <meta name="description" content="Fale com a Win Win Pet Shop pelo WhatsApp, consulte a localização em Matola e peça ajuda para escolher produtos para cães, gatos e cavalos.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#082e29">
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/site-v2.css">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_MZ">
+  <meta property="og:site_name" content="Win Win Pet Shop">
+  <meta property="og:title" content="Contactos e encomendas | Win Win Pet Shop">
+  <meta property="og:description" content="Fale connosco pelo WhatsApp para encomendar ou pedir ajuda.">
+  <meta property="og:image" content="/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+</head>
 <body data-page="contactos">
-    <a class="skip-link" href="#conteudo">Saltar para o conteúdo</a>
-    <div data-site-header></div>
-<main id="conteudo">
+  <a class="skip-link" href="#conteudo">Saltar para o conteúdo</a>
+  <div data-site-header></div>
+
+  <main id="conteudo">
     <section class="page-hero">
-        <div class="wrap">
-            <div class="crumbs">
-                <a href="index.html">Início</a>
-                <span>/</span>
-                <span>Contactos</span>
-            </div>
-            <h1>Vamos encontrar o que o seu pet precisa.</h1>
-            <p>Fale com a equipa da Win Win Pet Shop para saber mais sobre produtos e como visitar a loja em Maputo.</p>
-        </div>
+      <div class="wrap">
+        <div class="crumbs"><a href="index.html">Início</a><span>/</span><span>Contactos</span></div>
+        <span class="eyebrow eyebrow--light">Estamos aqui para ajudar</span>
+        <h1>Fale directamente com a nossa equipa.</h1>
+        <p>Peça um produto, confirme o stock ou diga-nos o que o seu animal precisa. A conversa continua no WhatsApp.</p>
+      </div>
     </section>
+
     <section class="section">
-        <div class="wrap contact-grid">
-            <aside class="contact-panel">
-                <span class="eyebrow">Win Win Pet Shop</span>
-                <h2>Fale connosco.</h2>
-                <p>Estamos em Maputo, Moçambique. Use o formulário para deixar a sua mensagem e a equipa poderá responder com mais informações.</p>
-                <p><strong>Também pode visitar:</strong><br><a href="localizacao.html">Ver localização da loja →</a></p>
-                <p class="notice">Os contactos directos, horário e endereço detalhado serão adicionados assim que a loja os confirmar.</p>
-            </aside>
-            <form id="pedido" class="contact-form" action="#" method="post">
-                <label>O seu nome<input type="text" name="nome" autocomplete="name" required></label>
-                <label>Contacto (telefone ou e-mail)<input type="text" name="contacto" autocomplete="email" required></label>
-                <label>Como podemos ajudar?<select name="assunto"><option>Informações sobre produtos</option><option>Rações e alimentação</option><option>Acessórios</option><option>Brinquedos</option><option>Visita à loja</option></select></label>
-                <label>Mensagem<textarea name="mensagem" required></textarea></label>
-                <button class="button" type="submit">Enviar mensagem</button>
-                <p class="notice">Site estático: ligue este formulário a Formspree, Netlify Forms ou a uma API antes de publicar.</p>
-            </form>
-        </div>
+      <div class="wrap contact-grid">
+        <aside class="contact-card">
+          <span class="eyebrow">Contacto directo</span>
+          <h2>Uma resposta humana, sem complicações.</h2>
+          <p>Use o formulário para preparar a sua mensagem ou abra já o WhatsApp. Não partilhamos o seu contacto através deste site.</p>
+          <div class="contact-list">
+            <a href="https://wa.me/258856528659?text=Ol%C3%A1%2C%20Win%20Win%20Pet%20Shop!" target="_blank" rel="noopener">WhatsApp: +258 85 652 8659 ↗</a>
+            <address>Bombas Nkomazi, Av. da Namaacha, KM16<br>Matola, 1114 Maputo</address>
+            <a href="https://share.google/BdUoluDgclMHXdL8E" target="_blank" rel="noopener">Abrir localização no Google Maps ↗</a>
+          </div>
+        </aside>
+
+        <form class="contact-form" data-whatsapp-form>
+          <div>
+            <span class="eyebrow">Prepare a mensagem</span>
+            <h2 class="form-title">Como podemos ajudar?</h2>
+          </div>
+          <label>
+            O seu nome
+            <input type="text" name="nome" autocomplete="name" required>
+          </label>
+          <label>
+            O que procura?
+            <select name="assunto">
+              <option>Uma ração para cão</option>
+              <option>Um produto para gato</option>
+              <option>Alimentação para cavalo</option>
+              <option>Equipamento de equitação</option>
+              <option>Produtos de cuidado e higiene</option>
+              <option>Informação sobre a loja</option>
+            </select>
+          </label>
+          <label>
+            Conte-nos mais
+            <textarea name="mensagem" placeholder="Produto, tamanho, quantidade ou qualquer dúvida..."></textarea>
+          </label>
+          <button class="button button--whatsapp" type="submit">Continuar no WhatsApp ↗</button>
+          <p class="form-note">Ao continuar, o WhatsApp abrirá uma mensagem preparada. Só será enviada quando tocar em enviar.</p>
+        </form>
+      </div>
     </section>
-</main>
-<div data-site-footer></div>
-<script src="assets/js/header.js" defer></script>
-<script src="assets/js/footer.js" defer></script>
-<script src="assets/js/components.js" defer></script>
-<script src="assets/js/main.js" defer></script>
+  </main>
+
+  <div data-site-footer></div>
+  <script src="assets/js/header.js" defer></script>
+  <script src="assets/js/footer.js" defer></script>
+  <script src="assets/js/components.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
