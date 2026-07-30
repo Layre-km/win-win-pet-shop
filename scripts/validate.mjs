@@ -131,7 +131,19 @@ if (!(await exists(path.join(root, "public", "og.png")))) {
 }
 
 if (!(await exists(path.join(root, "assets", "js", "shop.js")))) {
-  issues.push("missing shared basket and quick-view script");
+  issues.push("missing shared basket script");
+}
+
+const productsPage = await readFile(path.join(root, "produtos.html"), "utf8");
+const shopSource = await readFile(path.join(root, "assets", "js", "shop.js"), "utf8");
+if (!productsPage.includes('data-catalog-layout="grid"') || !productsPage.includes('data-catalog-layout="list"')) {
+  issues.push("catalogue is missing the mobile grid/list controls");
+}
+if (!catalogSource.includes('href="produtos/${product.id}.html"')) {
+  issues.push("catalogue product visuals do not link to dedicated product pages");
+}
+if (catalogSource.includes("data-quick-view") || shopSource.includes("data-quick-dialog")) {
+  issues.push("legacy product quick-view popup is still present");
 }
 
 const sitemap = await readFile(path.join(root, "sitemap.xml"), "utf8");

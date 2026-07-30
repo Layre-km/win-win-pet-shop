@@ -64,7 +64,17 @@
       <div class="wrap">
         <div class="catalog-summary">
           <strong data-catalog-count>27 produtos</strong>
-          <button type="button" data-clear-filters>Limpar filtros</button>
+          <div class="catalog-summary__actions">
+            <div class="catalog-layout-toggle" role="group" aria-label="Apresentação dos produtos">
+              <button class="is-active" type="button" data-catalog-layout="grid" aria-pressed="true" aria-label="Mostrar dois produtos por linha">
+                <span class="layout-icon layout-icon--grid" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+              </button>
+              <button type="button" data-catalog-layout="list" aria-pressed="false" aria-label="Mostrar um produto por linha">
+                <span class="layout-icon layout-icon--list" aria-hidden="true"><i></i><i></i></span>
+              </button>
+            </div>
+            <button type="button" data-clear-filters>Limpar filtros</button>
+          </div>
         </div>
         <div class="catalog-grid" data-catalog-grid aria-live="polite"></div>
         <div class="catalog-empty" data-catalog-empty hidden>

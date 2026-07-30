@@ -1,5 +1,5 @@
 window.WinWinFooter = `
-  <footer class="site-footer">
+  <footer class="site-footer" id="rodape">
     <div class="wrap footer-grid">
       <section class="footer-brand">
         <a class="brand" href="index.html" aria-label="Win Win Pet Shop — página inicial">

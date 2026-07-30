@@ -438,6 +438,7 @@
 
   function productCard(product) {
     const firstVariant = product.variants[0];
+    const lowestPrice = Math.min(...product.variants.map((variant) => variant.price));
     const variantId = `variant-${product.id}`;
     const animalText = product.animals.map((animal) => animalLabels[animal]).join(" · ");
     const options = product.variants
@@ -460,9 +461,9 @@
     return `
       <article class="catalog-card" id="${product.id}" data-product-id="${product.id}">
         <div class="catalog-card__visual ${product.image ? "" : "catalog-card__visual--placeholder"}">
-          <button class="catalog-card__quick" type="button" data-quick-view="${product.id}" aria-label="Ver detalhes de ${product.name}">
+          <a class="catalog-card__link" href="produtos/${product.id}.html" aria-label="Ver ${product.name}">
             ${visualMarkup(product)}
-          </button>
+          </a>
           <span class="catalog-card__animal">${animalText}</span>
         </div>
         <div class="catalog-card__body">
@@ -473,11 +474,16 @@
           </div>
           <h2><a href="produtos/${product.id}.html">${product.name}</a></h2>
           <p>${product.description}</p>
+          <span class="catalog-card__options">${
+            product.variants.length > 1
+              ? `${product.variants.length} opções disponíveis`
+              : firstVariant.label
+          }</span>
           ${variantControl}
           <div class="catalog-card__buy">
             <div>
-              <small>Preço por unidade</small>
-              <strong data-product-price>${formatPrice(firstVariant.price)}</strong>
+              <small data-price-label>Preço por unidade</small>
+              <strong data-product-price>${formatPrice(lowestPrice)}</strong>
               <span class="stock-status" data-product-stock>${firstVariant.stock} ${firstVariant.stock === 1 ? "unidade" : "unidades"} no relatório</span>
             </div>
             <div class="catalog-card__actions">
@@ -524,6 +530,7 @@
     const search = document.querySelector("[data-catalog-search]");
     const animal = document.querySelector("[data-animal-filter]");
     const buttons = Array.from(document.querySelectorAll("[data-section-filter]"));
+    const layoutButtons = Array.from(document.querySelectorAll("[data-catalog-layout]"));
     const count = document.querySelector("[data-catalog-count]");
     const empty = document.querySelector("[data-catalog-empty]");
     const params = new URLSearchParams(window.location.search);
@@ -531,6 +538,21 @@
     let activeSection = params.get("categoria") || "todos";
     const requestedAnimal = params.get("animal");
     const requestedProduct = params.get("produto");
+    let mobileLayout = "grid";
+    try {
+      mobileLayout = localStorage.getItem("winwin-catalog-layout") === "list" ? "list" : "grid";
+    } catch {
+      mobileLayout = "grid";
+    }
+
+    function applyLayout() {
+      grid.dataset.mobileLayout = mobileLayout;
+      layoutButtons.forEach((button) => {
+        const isActive = button.dataset.catalogLayout === mobileLayout;
+        button.classList.toggle("is-active", isActive);
+        button.setAttribute("aria-pressed", String(isActive));
+      });
+    }
 
     if (requestedAnimal && animal) animal.value = requestedAnimal;
     if (requestedProduct && search) {
@@ -574,12 +596,24 @@
         render();
       });
     });
+    layoutButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        mobileLayout = button.dataset.catalogLayout;
+        try {
+          localStorage.setItem("winwin-catalog-layout", mobileLayout);
+        } catch {
+          // The view still changes when browser storage is unavailable.
+        }
+        applyLayout();
+      });
+    });
     document.querySelector("[data-clear-filters]")?.addEventListener("click", () => {
       activeSection = "todos";
       if (search) search.value = "";
       if (animal) animal.value = "todos";
       render();
     });
+    applyLayout();
     render();
   }
 
