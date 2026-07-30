@@ -144,13 +144,13 @@ for (const product of products) {
 const locationPage = await readFile(path.join(root, "localizacao.html"), "utf8");
 for (const requiredLocationValue of [
   "Win Win Pet Shop",
-  "-26.005223536704786",
-  "32.41639891609725",
+  "-26.00523347719969",
+  "32.4137231751917",
   '"opens": "09:00"',
   '"closes": "19:00"',
   '"opens": "08:00"',
   '"closes": "13:00"',
-  "maps.google.com/maps"
+  "www.google.com/maps/embed?pb="
 ]) {
   if (!locationPage.includes(requiredLocationValue)) {
     issues.push(`location page missing "${requiredLocationValue}"`);
