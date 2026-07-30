@@ -1749,7 +1749,7 @@ a {
 /* Product pages */
 .product-hero {
   background: var(--forest-50);
-  padding: 2.5rem 0 clamp(4rem, 7vw, 6rem);
+  padding: 1.5rem 0 clamp(2rem, 7vw, 6rem);
 }
 
 .crumbs--dark {
@@ -2993,7 +2993,7 @@ body[data-page="produtos"] .floating-whatsapp {
   }
 
   .section {
-    padding: 3.25rem 0;
+    padding: 2.25rem 0;
   }
 
   .section--compact {
@@ -3177,12 +3177,12 @@ body[data-page="produtos"] .floating-whatsapp {
   }
 
   .site-footer {
-    padding: 3rem 0 1.25rem;
+    padding: 1.5rem 0 1.25rem;
   }
 
   .footer-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 2rem 1.25rem;
+    gap: 1rem 1.25rem;
   }
 
   .footer-grid .footer-brand {
@@ -3203,7 +3203,7 @@ body[data-page="produtos"] .floating-whatsapp {
     grid-column: 1 / -1;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.5rem 1rem;
-    padding-top: 1.5rem;
+    padding-top: 1rem;
     border-top: 1px solid rgba(255, 255, 255, 0.12);
   }
 
@@ -3222,7 +3222,7 @@ body[data-page="produtos"] .floating-whatsapp {
 
   .footer-bottom {
     display: block;
-    margin-top: 2.25rem;
+    margin-top: 1.5rem;
   }
 
   .footer-bottom span {

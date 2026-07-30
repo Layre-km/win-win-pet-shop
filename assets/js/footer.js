@@ -29,7 +29,7 @@ window.WinWinFooter = `
       </section>
     </div>
     <div class="wrap footer-bottom">
-      <span>© 2026 Win Win Pet Shop. Preços sujeitos a confirmação de stock.</span>
+      <span>2026 © Win Win Sociedade Lda. Feito por Layre Munguambe.</span>
       <a href="https://share.google/BdUoluDgclMHXdL8E" target="_blank" rel="noopener">Abrir no Google Maps ↗</a>
     </div>
   </footer>`;
