@@ -32,4 +32,4 @@ window.WinWinFooter = `
       <a href="https://share.google/BdUoluDgclMHXdL8E" target="_blank" rel="noopener">Abrir no Google Maps ↗</a>
     </div>
   </footer>
-  <a class="floating-whatsapp" href="https://wa.me/258856528659?text=Ol%C3%A1%2C%20Win%20Win%20Pet%20Shop!%20Gostaria%20de%20fazer%20uma%20encomenda." target="_blank" rel="noopener" aria-label="Fazer encomenda pelo WhatsApp">Encomendar no WhatsApp</a>`;
+  <a class="floating-whatsapp" href="https://wa.me/258856528659?text=Ol%C3%A1%2C%20Win%20Win%20Pet%20Shop!%20Gostaria%20de%20fazer%20uma%20encomenda." target="_blank" rel="noopener" aria-label="Fazer encomenda pelo WhatsApp"></a>`;

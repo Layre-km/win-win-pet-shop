@@ -31,11 +31,13 @@
 }
 
 html {
+  overflow-x: clip;
   scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
+  overflow-x: hidden;
   background: var(--cream);
   color: var(--ink);
   font-family: "DM Sans", Arial, sans-serif;
@@ -535,17 +537,17 @@ a {
 }
 
 .hero-art__product--dog {
-  right: 17%;
-  bottom: 4%;
-  width: 49%;
-  height: 84%;
+  right: 19%;
+  bottom: 1%;
+  width: 54%;
+  height: 89%;
 }
 
 .hero-art__product--horse {
-  right: -3%;
-  bottom: 7%;
-  width: 42%;
-  height: 48%;
+  right: -1%;
+  bottom: 2%;
+  width: 45%;
+  height: 51%;
 }
 
 .hero-art__badge {
@@ -578,31 +580,6 @@ a {
   font-weight: 800;
   line-height: 1.15;
   text-transform: uppercase;
-}
-
-.hero-art__card {
-  position: absolute;
-  z-index: 4;
-  right: -1rem;
-  bottom: 1.25rem;
-  max-width: 190px;
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.92);
-  color: var(--forest-950);
-  padding: 1rem 1.1rem;
-  box-shadow: var(--shadow-sm);
-  backdrop-filter: blur(12px);
-}
-
-.hero-art__card strong {
-  display: block;
-  margin-bottom: 0.15rem;
-}
-
-.hero-art__card span {
-  color: var(--muted);
-  font-size: 0.78rem;
 }
 
 /* Brand and trust strips */
@@ -963,12 +940,14 @@ a {
   min-height: 290px;
   place-items: center;
   overflow: hidden;
-  background: #f4f2ec;
-  padding: 1.25rem;
+  border-bottom: 1px solid var(--line);
+  background: var(--white);
+  padding: clamp(1.15rem, 2vw, 1.75rem);
 }
 
 .catalog-card__visual img {
-  width: 100%;
+  display: block;
+  width: min(100%, 320px);
   height: 255px;
   object-fit: contain;
   transition: transform 250ms ease;
@@ -1186,10 +1165,13 @@ a {
 
 .featured-grid .catalog-card__visual {
   min-height: 100%;
+  border-right: 1px solid var(--line);
+  border-bottom: 0;
 }
 
 .featured-grid .catalog-card__visual img {
-  height: 300px;
+  width: min(100%, 300px);
+  height: 290px;
 }
 
 /* Ordering and location */
@@ -1623,14 +1605,15 @@ a {
   z-index: 45;
   right: 1.2rem;
   bottom: 1.2rem;
-  display: inline-flex;
-  min-height: 52px;
+  display: grid;
+  width: 54px;
+  height: 54px;
   align-items: center;
-  gap: 0.55rem;
+  justify-content: center;
   border-radius: 999px;
   background: #1f9d62;
   color: var(--white);
-  padding: 0.75rem 1rem;
+  padding: 0;
   box-shadow: 0 16px 35px rgba(15, 85, 52, 0.28);
   font-size: 0.86rem;
   font-weight: 800;
@@ -1639,12 +1622,17 @@ a {
 
 .floating-whatsapp::before {
   display: grid;
-  width: 30px;
-  height: 30px;
+  width: 36px;
+  height: 36px;
   place-items: center;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.18);
   content: "W";
+}
+
+body[data-page="inicio"] .floating-whatsapp,
+body[data-page="produtos"] .floating-whatsapp {
+  display: none;
 }
 
 [data-reveal] {
@@ -1658,7 +1646,7 @@ a {
   transform: translateY(0);
 }
 
-@media (max-width: 1040px) {
+@media (max-width: 1120px) {
   .nav-wrap {
     min-height: 76px;
   }
@@ -1740,6 +1728,8 @@ a {
 
   .featured-grid .catalog-card__visual {
     min-height: 290px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
   }
 
   .catalog-toolbar {
@@ -1776,16 +1766,16 @@ a {
 
   .home-hero__grid {
     display: block;
-    padding: 4.5rem 0 2.5rem;
+    padding: 3.75rem 0 2.25rem;
   }
 
   .home-hero__copy h1 {
-    font-size: clamp(3.2rem, 15vw, 5.1rem);
+    font-size: clamp(3.15rem, 13.5vw, 4.75rem);
   }
 
   .hero-art {
-    min-height: 470px;
-    margin-top: 3rem;
+    min-height: 410px;
+    margin-top: 2.5rem;
   }
 
   .hero-art__panel {
@@ -1796,10 +1786,6 @@ a {
     left: -0.5rem;
     width: 112px;
     height: 112px;
-  }
-
-  .hero-art__card {
-    right: 0.5rem;
   }
 
   .section-head,
@@ -1859,6 +1845,8 @@ a {
 
   .catalog-card__visual {
     min-height: 100%;
+    border-right: 1px solid var(--line);
+    border-bottom: 0;
     padding: 0.8rem;
   }
 
@@ -1895,7 +1883,7 @@ a {
   }
 }
 
-@media (max-width: 560px) {
+@media (max-width: 620px) {
   .button-row {
     flex-direction: column;
   }
@@ -1905,20 +1893,16 @@ a {
   }
 
   .hero-art {
-    min-height: 390px;
+    min-height: 330px;
   }
 
   .hero-art__product--dog {
-    right: 22%;
-    width: 54%;
+    right: 21%;
+    width: 56%;
   }
 
   .hero-art__product--horse {
-    width: 44%;
-  }
-
-  .hero-art__card {
-    display: none;
+    width: 46%;
   }
 
   .brand-strip .wrap {
@@ -1934,12 +1918,26 @@ a {
     padding: 3.8rem 0;
   }
 
+  .filter-chips {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    overflow: visible;
+  }
+
+  .filter-chip {
+    width: 100%;
+    min-height: 44px;
+    padding-inline: 0.7rem;
+  }
+
   .catalog-card {
     display: flex;
   }
 
   .catalog-card__visual {
     min-height: 250px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
   }
 
   .catalog-card__visual img {
@@ -1981,16 +1979,6 @@ a {
   .floating-whatsapp {
     right: 0.75rem;
     bottom: 0.75rem;
-    width: 52px;
-    overflow: hidden;
-    padding: 0.7rem;
-    white-space: nowrap;
-  }
-
-  .floating-whatsapp::before {
-    flex: 0 0 36px;
-    width: 36px;
-    height: 36px;
   }
 }
 
