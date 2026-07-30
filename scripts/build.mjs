@@ -1,5 +1,6 @@
 import { cp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
+import "./generate-product-pages.mjs";
 
 const root = process.cwd();
 const dist = path.join(root, "dist");
@@ -14,7 +15,8 @@ const pages = [
   "localizacao.html",
   "faq.html",
   "404.html",
-  "robots.txt"
+  "robots.txt",
+  "sitemap.xml"
 ];
 
 await rm(dist, { recursive: true, force: true });
@@ -22,6 +24,7 @@ await mkdir(client, { recursive: true });
 await mkdir(server, { recursive: true });
 await cp(path.join(root, "assets"), path.join(client, "assets"), { recursive: true });
 await cp(path.join(root, "public"), client, { recursive: true });
+await cp(path.join(root, "produtos"), path.join(client, "produtos"), { recursive: true });
 
 for (const page of pages) {
   await cp(path.join(root, page), path.join(client, page));
@@ -46,12 +49,12 @@ const LEGACY_REDIRECTS = {
   "/racoes.html": "/produtos.html?categoria=alimentacao",
   "/acessorios.html": "/produtos.html?categoria=acessorios",
   "/brinquedos.html": "/produtos.html",
-  "/racao-classic-adult-25kg.html": "/produtos.html?produto=montego-classic-adult",
-  "/racao-classic-adult-40kg.html": "/produtos.html?produto=montego-classic-adult",
-  "/racao-jock-multistage-20kg.html": "/produtos.html?produto=jock-multistage",
-  "/caixa-transportadora-para-pets.html": "/produtos.html?produto=caixa-transporte",
-  "/acaimo-para-caes.html": "/produtos.html?produto=focinheiras-caes",
-  "/coleiras-coloridas-para-pets.html": "/produtos.html?produto=coleiras-sonoras-gatos"
+  "/racao-classic-adult-25kg.html": "/produtos/montego-classic-adult",
+  "/racao-classic-adult-40kg.html": "/produtos/montego-classic-adult",
+  "/racao-jock-multistage-20kg.html": "/produtos/jock-multistage",
+  "/caixa-transportadora-para-pets.html": "/produtos/caixa-transporte",
+  "/acaimo-para-caes.html": "/produtos/focinheiras-caes",
+  "/coleiras-coloridas-para-pets.html": "/produtos/coleiras-sonoras-gatos"
 };
 
 export default {
@@ -93,4 +96,4 @@ await writeFile(
   "utf8"
 );
 
-console.log(`Built ${pages.length} public files plus shared assets.`);
+console.log(`Built ${pages.length} public files, 27 product pages and shared assets.`);

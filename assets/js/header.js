@@ -10,9 +10,15 @@ window.WinWinHeader = `
       <a class="brand" href="index.html" aria-label="Win Win Pet Shop — página inicial">
         <img class="brand-logo" src="assets/images/logo-win-win-petshop.png" alt="Win Win Pet Shop">
       </a>
-      <button class="menu-button" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-menu">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="nav-actions">
+        <button class="header-basket" type="button" data-basket-toggle aria-label="Abrir cesta de encomenda">
+          <span aria-hidden="true">+</span>
+          <b data-basket-count>0</b>
+        </button>
+        <button class="menu-button" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
       <nav id="main-menu" class="main-nav" aria-label="Navegação principal">
         <a data-nav="inicio" href="index.html">Início</a>
         <a data-nav="produtos" href="produtos.html">Todos os produtos</a>

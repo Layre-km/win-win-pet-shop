@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "node scripts/dev-server.mjs",
+    "generate:products": "node scripts/generate-product-pages.mjs",
     "build": "node scripts/build.mjs",
     "start": "node scripts/dev-server.mjs",
     "validate": "node scripts/validate.mjs"

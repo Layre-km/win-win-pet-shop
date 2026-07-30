@@ -2,12 +2,12 @@ const legacyRedirects = {
   "racoes.html": "produtos.html?categoria=alimentacao",
   "acessorios.html": "produtos.html?categoria=acessorios",
   "brinquedos.html": "produtos.html",
-  "racao-classic-adult-25kg.html": "produtos.html?produto=montego-classic-adult",
-  "racao-classic-adult-40kg.html": "produtos.html?produto=montego-classic-adult",
-  "racao-jock-multistage-20kg.html": "produtos.html?produto=jock-multistage",
-  "caixa-transportadora-para-pets.html": "produtos.html?produto=caixa-transporte",
-  "acaimo-para-caes.html": "produtos.html?produto=focinheiras-caes",
-  "coleiras-coloridas-para-pets.html": "produtos.html?produto=coleiras-sonoras-gatos"
+  "racao-classic-adult-25kg.html": "produtos/montego-classic-adult.html",
+  "racao-classic-adult-40kg.html": "produtos/montego-classic-adult.html",
+  "racao-jock-multistage-20kg.html": "produtos/jock-multistage.html",
+  "caixa-transportadora-para-pets.html": "produtos/caixa-transporte.html",
+  "acaimo-para-caes.html": "produtos/focinheiras-caes.html",
+  "coleiras-coloridas-para-pets.html": "produtos/coleiras-sonoras-gatos.html"
 };
 
 const currentFile = window.location.pathname.split("/").pop();

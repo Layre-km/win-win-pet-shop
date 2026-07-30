@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://win-win-petshop-matola.layre.chatgpt.site/sitemap.xml

@@ -24,6 +24,7 @@ window.WinWinFooter = `
       <section>
         <h2>Visite-nos</h2>
         <p>Bombas Nkomazi<br>Av. da Namaacha, KM16<br>Matola, 1114 Maputo</p>
+        <p class="footer-hours">Seg–Sex · 9h–19h<br>Sábado · 8h–13h<br>Domingo · Encerrado</p>
         <a class="footer-contact" href="https://wa.me/258856528659?text=Ol%C3%A1%2C%20Win%20Win%20Pet%20Shop!" target="_blank" rel="noopener">WhatsApp +258 85 652 8659 ↗</a>
       </section>
     </div>
@@ -31,5 +32,4 @@ window.WinWinFooter = `
       <span>© 2026 Win Win Pet Shop. Preços sujeitos a confirmação de stock.</span>
       <a href="https://share.google/BdUoluDgclMHXdL8E" target="_blank" rel="noopener">Abrir no Google Maps ↗</a>
     </div>
-  </footer>
-  <a class="floating-whatsapp" href="https://wa.me/258856528659?text=Ol%C3%A1%2C%20Win%20Win%20Pet%20Shop!%20Gostaria%20de%20fazer%20uma%20encomenda." target="_blank" rel="noopener" aria-label="Fazer encomenda pelo WhatsApp"></a>`;
+  </footer>`;

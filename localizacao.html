@@ -16,6 +16,44 @@
   <meta property="og:description" content="Bombas Nkomazi, Avenida da Namaacha, KM16, Matola.">
   <meta property="og:image" content="/og.png">
   <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "PetStore",
+      "name": "Win Win Pet Shop",
+      "url": "https://win-win-petshop-matola.layre.chatgpt.site/localizacao.html",
+      "telephone": "+258856528659",
+      "hasMap": "https://share.google/BdUoluDgclMHXdL8E",
+      "sameAs": ["https://share.google/BdUoluDgclMHXdL8E"],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Bombas Nkomazi, Avenida da Namaacha, KM16",
+        "addressLocality": "Matola",
+        "postalCode": "1114",
+        "addressRegion": "Maputo",
+        "addressCountry": "MZ"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -26.005223536704786,
+        "longitude": 32.41639891609725
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "19:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "08:00",
+          "closes": "13:00"
+        }
+      ]
+    }
+  </script>
 </head>
 <body data-page="localizacao">
   <a class="skip-link" href="#conteudo">Saltar para o conteúdo</a>
@@ -32,21 +70,33 @@
     </section>
 
     <section class="section">
-      <div class="wrap content-grid">
-        <div class="map-card">
-          <span class="eyebrow eyebrow--light">Win Win Pet Shop</span>
-          <h2>A sua próxima paragem.</h2>
-          <p>Bombas Nkomazi, Avenida da Namaacha, KM16, Matola, 1114 Maputo, Moçambique.</p>
-          <div class="button-row mt-2">
-            <a class="button button--sun" href="https://share.google/BdUoluDgclMHXdL8E" target="_blank" rel="noopener">Abrir rota no Google Maps ↗</a>
+      <div class="wrap location-map-grid">
+        <div class="embedded-map" id="mapa">
+          <iframe
+            title="Mapa da Win Win Pet Shop nas Bombas Nkomazi, Matola"
+            src="https://maps.google.com/maps?hl=pt-MZ&amp;q=-26.005223536704786,32.41639891609725&amp;z=17&amp;output=embed"
+            width="800"
+            height="620"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen>
+          </iframe>
+          <div class="embedded-map__label">
+            <strong>Win Win Pet Shop</strong>
+            <span>Bombas Nkomazi · Av. da Namaacha, KM16</span>
           </div>
         </div>
         <aside class="contact-card">
-          <span class="eyebrow">Antes de sair</span>
-          <h2>Confirme o produto que procura.</h2>
-          <p>As quantidades podem mudar ao longo do dia. Envie-nos o nome e a opção do produto para confirmarmos o stock antes da sua visita.</p>
+          <span class="eyebrow">Planeie a sua visita</span>
+          <h2>Estamos prontos para o receber.</h2>
+          <p>Consulte os horários e abra a rota exacta no Google Maps. Se procura um produto específico, confirme o stock antes de sair.</p>
+          <div class="opening-hours" aria-label="Horário de funcionamento">
+            <div><span>Segunda–sexta</span><strong>9h–19h</strong></div>
+            <div><span>Sábado</span><strong>8h–13h</strong></div>
+            <div><span>Domingo</span><strong>Encerrado</strong></div>
+          </div>
           <div class="contact-list">
             <address><strong>Morada</strong><br>Bombas Nkomazi<br>Av. da Namaacha, KM16<br>Matola, 1114 Maputo</address>
+            <a href="https://share.google/BdUoluDgclMHXdL8E" target="_blank" rel="noopener">Abrir rota no Google Maps ↗</a>
             <a href="https://wa.me/258856528659?text=Ol%C3%A1%2C%20Win%20Win%20Pet%20Shop!%20Gostaria%20de%20confirmar%20a%20disponibilidade%20antes%20de%20visitar%20a%20loja." target="_blank" rel="noopener">Confirmar visita no WhatsApp ↗</a>
             <a href="produtos.html">Ver todos os produtos →</a>
           </div>
@@ -59,6 +109,8 @@
   <script src="assets/js/header.js" defer></script>
   <script src="assets/js/footer.js" defer></script>
   <script src="assets/js/components.js" defer></script>
+  <script src="assets/js/catalog.js" defer></script>
+  <script src="assets/js/shop.js" defer></script>
   <script src="assets/js/main.js" defer></script>
 </body>
 </html>

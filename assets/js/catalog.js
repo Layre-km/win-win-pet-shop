@@ -460,7 +460,9 @@
     return `
       <article class="catalog-card" id="${product.id}" data-product-id="${product.id}">
         <div class="catalog-card__visual ${product.image ? "" : "catalog-card__visual--placeholder"}">
-          ${visualMarkup(product)}
+          <button class="catalog-card__quick" type="button" data-quick-view="${product.id}" aria-label="Ver detalhes de ${product.name}">
+            ${visualMarkup(product)}
+          </button>
           <span class="catalog-card__animal">${animalText}</span>
         </div>
         <div class="catalog-card__body">
@@ -469,18 +471,23 @@
             <span>${product.brand}</span>
             <span>${sectionLabels[product.section]}</span>
           </div>
-          <h2>${product.name}</h2>
+          <h2><a href="produtos/${product.id}.html">${product.name}</a></h2>
           <p>${product.description}</p>
           ${variantControl}
           <div class="catalog-card__buy">
             <div>
               <small>Preço por unidade</small>
               <strong data-product-price>${formatPrice(firstVariant.price)}</strong>
-              <span data-product-stock>${firstVariant.stock} ${firstVariant.stock === 1 ? "unidade" : "unidades"} no relatório</span>
+              <span class="stock-status" data-product-stock>${firstVariant.stock} ${firstVariant.stock === 1 ? "unidade" : "unidades"} no relatório</span>
             </div>
-            <a class="button button--whatsapp button--compact" data-product-order href="${waUrl(product, firstVariant)}" target="_blank" rel="noopener">
-              Encomendar <span aria-hidden="true">↗</span>
-            </a>
+            <div class="catalog-card__actions">
+              <button class="button button--basket button--compact" type="button" data-add-to-basket data-product-id="${product.id}" data-variant-index="0">
+                Adicionar <span aria-hidden="true">+</span>
+              </button>
+              <a class="card-order-link" data-product-order href="${waUrl(product, firstVariant)}" target="_blank" rel="noopener">
+                Pedir agora <span aria-hidden="true">↗</span>
+              </a>
+            </div>
           </div>
         </div>
       </article>`;
@@ -504,6 +511,8 @@
         card.querySelector("[data-product-stock]").textContent =
           `${variant.stock} ${variant.stock === 1 ? "unidade" : "unidades"} no relatório`;
         card.querySelector("[data-product-order]").href = waUrl(product, variant);
+        const addButton = card.querySelector("[data-add-to-basket]");
+        if (addButton) addButton.dataset.variantIndex = select.value;
       });
     });
   }
@@ -544,7 +553,11 @@
 
       grid.innerHTML = visible.map(productCard).join("");
       setupCardInteractions(grid, visible);
-      if (count) count.textContent = `${visible.length} ${visible.length === 1 ? "produto" : "produtos"}`;
+      if (count) {
+        count.textContent = `${visible.length} ${visible.length === 1 ? "produto" : "produtos"}`;
+        count.classList.remove("is-updating");
+        requestAnimationFrame(() => count.classList.add("is-updating"));
+      }
       if (empty) empty.hidden = visible.length !== 0;
       buttons.forEach((button) => {
         const isActive = button.dataset.sectionFilter === activeSection;
@@ -579,7 +592,15 @@
     });
   }
 
-  window.WinWinCatalog = { products, formatPrice, stockDate: STOCK_DATE };
+  window.WinWinCatalog = {
+    products,
+    formatPrice,
+    stockDate: STOCK_DATE,
+    waUrl,
+    visualMarkup,
+    sectionLabels,
+    animalLabels
+  };
   document.addEventListener("DOMContentLoaded", () => {
     setupCatalog();
     setupFeatured();

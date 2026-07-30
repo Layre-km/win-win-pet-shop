@@ -26,8 +26,9 @@
       "@type": "PetStore",
       "name": "Win Win Pet Shop",
       "description": "Loja de alimentação, acessórios e cuidados para cães, gatos e cavalos.",
+      "url": "https://win-win-petshop-matola.layre.chatgpt.site/",
       "telephone": "+258856528659",
-      "image": "assets/images/catalog/loja-win-win.webp",
+      "image": "https://win-win-petshop-matola.layre.chatgpt.site/assets/images/catalog/loja-win-win.webp",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Bombas Nkomazi, Avenida da Namaacha, KM16",
@@ -36,7 +37,27 @@
         "addressRegion": "Maputo",
         "addressCountry": "MZ"
       },
-      "hasMap": "https://share.google/BdUoluDgclMHXdL8E"
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -26.005223536704786,
+        "longitude": 32.41639891609725
+      },
+      "hasMap": "https://share.google/BdUoluDgclMHXdL8E",
+      "sameAs": ["https://share.google/BdUoluDgclMHXdL8E"],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "19:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "08:00",
+          "closes": "13:00"
+        }
+      ]
     }
   </script>
 </head>
@@ -123,7 +144,7 @@
             <h2>Comece pelos favoritos da loja.</h2>
           </div>
           <div>
-            <p>Seleccione o tamanho, veja o preço por unidade e envie a encomenda já preenchida para o WhatsApp.</p>
+            <p>Seleccione o tamanho, veja o preço por unidade e peça imediatamente ou reúna vários produtos numa única cesta.</p>
             <a class="button button--ghost mt-1" href="produtos.html">Explorar catálogo completo →</a>
           </div>
         </div>
@@ -148,13 +169,13 @@
           </article>
           <article class="order-step">
             <b>Passo 02</b>
-            <h3>Envie</h3>
-            <p>Toque em “Encomendar” para abrir uma mensagem já preparada no WhatsApp.</p>
+            <h3>Reúna</h3>
+            <p>Adicione vários produtos e quantidades à cesta, sem criar conta nem preencher formulários.</p>
           </article>
           <article class="order-step">
             <b>Passo 03</b>
-            <h3>Confirme</h3>
-            <p>A equipa valida o stock e combina consigo os detalhes da encomenda.</p>
+            <h3>Envie e confirme</h3>
+            <p>Envie a cesta pelo WhatsApp. A equipa valida o stock e combina consigo os detalhes.</p>
           </article>
         </div>
       </div>
@@ -213,6 +234,7 @@
   <script src="assets/js/footer.js" defer></script>
   <script src="assets/js/components.js" defer></script>
   <script src="assets/js/catalog.js" defer></script>
+  <script src="assets/js/shop.js" defer></script>
   <script src="assets/js/main.js" defer></script>
 </body>
 </html>
