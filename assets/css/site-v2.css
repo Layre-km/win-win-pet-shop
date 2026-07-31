@@ -646,38 +646,48 @@ a {
 
 /* Brand and trust strips */
 .brand-strip {
-  height: 98px;
+  height: 148px;
   overflow: hidden;
   border-bottom: 1px solid var(--line);
   background: #e8efeb;
 }
 
 .brand-strip__inner {
-  display: grid;
-  height: 98px;
-  grid-template-columns: minmax(180px, 230px) minmax(0, 1fr);
-  align-items: center;
+  display: flex;
+  width: 100%;
+  height: 148px;
+  flex-direction: column;
+  margin-inline: 0;
 }
 
 .brand-strip p {
   position: relative;
   z-index: 2;
   display: flex;
-  height: 100%;
+  width: 100%;
+  min-height: 42px;
+  flex: 0 0 42px;
   align-items: center;
+  justify-content: center;
   margin: 0;
   background: #e8efeb;
   color: var(--muted);
-  padding-right: clamp(1rem, 3vw, 2.5rem);
+  padding: 0 1rem;
   font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.11em;
   line-height: 1.35;
+  text-align: center;
   text-transform: uppercase;
 }
 
 .brand-marquee {
+  display: flex;
+  width: 100%;
   min-width: 0;
+  min-height: 0;
+  flex: 1 1 auto;
+  align-items: center;
   overflow: hidden;
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
   mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
@@ -686,12 +696,15 @@ a {
 .brand-marquee__track {
   display: flex;
   width: max-content;
+  height: 100%;
+  align-items: center;
   will-change: transform;
   animation: brand-marquee-scroll 26s linear infinite;
 }
 
 .brand-marquee__group {
   display: flex;
+  height: 100%;
   min-width: 100vw;
   flex: 0 0 auto;
   align-items: center;
@@ -2696,10 +2709,6 @@ body[data-page="produtos"] .floating-whatsapp {
     min-height: 430px;
   }
 
-  .brand-strip__inner {
-    grid-template-columns: minmax(155px, 195px) minmax(0, 1fr);
-  }
-
   .catalog-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -2803,12 +2812,7 @@ body[data-page="produtos"] .floating-whatsapp {
     align-items: start;
   }
 
-  .brand-strip__inner {
-    grid-template-columns: 132px minmax(0, 1fr);
-  }
-
   .brand-strip p {
-    padding-right: 0.8rem;
     font-size: 0.66rem;
     letter-spacing: 0.08em;
   }
@@ -3126,12 +3130,8 @@ body[data-page="produtos"] .floating-whatsapp {
     width: 46%;
   }
 
-  .brand-strip__inner {
-    grid-template-columns: 112px minmax(0, 1fr);
-  }
-
   .brand-strip p {
-    font-size: 0.59rem;
+    font-size: 0.64rem;
   }
 
   .brand-marquee {

@@ -161,8 +161,8 @@ for (const brand of ["montego", "jock", "epol", "marltons", "efekto"]) {
 if (!homePage.includes("brand-marquee__track") || !siteStyles.includes("@keyframes brand-marquee-scroll")) {
   issues.push("home page is missing the infinite brand marquee");
 }
-if (!/\.brand-strip\s*\{[\s\S]*?height:\s*98px;/.test(siteStyles)) {
-  issues.push("brand strip is not fixed at 98px");
+if (!/\.brand-strip\s*\{[\s\S]*?height:\s*148px;/.test(siteStyles)) {
+  issues.push("brand strip is not fixed at 148px");
 }
 
 const sitemap = await readFile(path.join(root, "sitemap.xml"), "utf8");
