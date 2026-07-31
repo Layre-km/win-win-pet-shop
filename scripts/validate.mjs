@@ -147,6 +147,7 @@ if (catalogSource.includes("data-quick-view") || shopSource.includes("data-quick
 }
 
 const homePage = await readFile(path.join(root, "index.html"), "utf8");
+const aboutPage = await readFile(path.join(root, "sobre.html"), "utf8");
 const siteStyles = await readFile(path.join(root, "assets", "css", "site-v2.css"), "utf8");
 for (const brand of ["montego", "jock", "epol", "marltons", "efekto"]) {
   const logoPath = path.join(root, "assets", "images", "brands", `${brand}.png`);
@@ -163,6 +164,30 @@ if (!homePage.includes("brand-marquee__track") || !siteStyles.includes("@keyfram
 }
 if (!/\.brand-strip\s*\{[\s\S]*?height:\s*148px;/.test(siteStyles)) {
   issues.push("brand strip is not fixed at 148px");
+}
+
+for (const image of [
+  "card-dog-real.webp",
+  "card-cat-real.webp",
+  "card-horse-real.webp",
+  "life-horse-real.webp",
+  "life-dog-real.webp",
+  "life-cat-real.webp"
+]) {
+  const imagePath = path.join(root, "assets", "images", "lifestyle", image);
+  if (!(await exists(imagePath))) issues.push(`missing real-pet image "${image}"`);
+}
+if (
+  !siteStyles.includes("card-dog-real.webp") ||
+  !siteStyles.includes("card-cat-real.webp") ||
+  !siteStyles.includes("card-horse-real.webp")
+) {
+  issues.push("home companion cards are missing real-pet backgrounds");
+}
+for (const image of ["life-horse-real.webp", "life-dog-real.webp", "life-cat-real.webp"]) {
+  if (!aboutPage.includes(`assets/images/lifestyle/${image}`)) {
+    issues.push(`about page is missing "${image}"`);
+  }
 }
 
 const sitemap = await readFile(path.join(root, "sitemap.xml"), "utf8");
