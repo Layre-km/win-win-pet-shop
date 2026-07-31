@@ -884,7 +884,7 @@ a {
   overflow: hidden;
   background: var(--forest-950);
   color: var(--white);
-  padding: clamp(3.5rem, 6vw, 7.5rem) 0;
+  padding: clamp(3.5rem, 4vw, 7.5rem) 0;
 }
 
 .catalog-hero::after,
