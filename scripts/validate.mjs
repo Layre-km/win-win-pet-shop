@@ -146,6 +146,25 @@ if (catalogSource.includes("data-quick-view") || shopSource.includes("data-quick
   issues.push("legacy product quick-view popup is still present");
 }
 
+const homePage = await readFile(path.join(root, "index.html"), "utf8");
+const siteStyles = await readFile(path.join(root, "assets", "css", "site-v2.css"), "utf8");
+for (const brand of ["montego", "jock", "epol", "marltons", "efekto"]) {
+  const logoPath = path.join(root, "assets", "images", "brands", `${brand}.png`);
+  if (!(await exists(logoPath))) issues.push(`missing transparent ${brand} brand logo`);
+  const logoReferences = homePage.match(
+    new RegExp(`assets/images/brands/${brand}\\.png`, "g")
+  ) ?? [];
+  if (logoReferences.length !== 2) {
+    issues.push(`home page marquee expected two ${brand} logo references, found ${logoReferences.length}`);
+  }
+}
+if (!homePage.includes("brand-marquee__track") || !siteStyles.includes("@keyframes brand-marquee-scroll")) {
+  issues.push("home page is missing the infinite brand marquee");
+}
+if (!/\.brand-strip\s*\{[\s\S]*?height:\s*98px;/.test(siteStyles)) {
+  issues.push("brand strip is not fixed at 98px");
+}
+
 const sitemap = await readFile(path.join(root, "sitemap.xml"), "utf8");
 for (const product of products) {
   if (!sitemap.includes(`/produtos/${product.id}</loc>`)) {

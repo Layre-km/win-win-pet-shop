@@ -139,11 +139,11 @@ a {
 }
 
 .section {
-  padding: clamp(4.5rem, 8vw, 7.5rem) 0;
+  padding: clamp(3.5rem, 4vw, 7.5rem) 0;
 }
 
 .section--compact {
-  padding: clamp(3.25rem, 6vw, 5rem) 0;
+  padding: clamp(3.25rem, 4vw, 5rem) 0;
 }
 
 .section--paper {
@@ -508,11 +508,11 @@ a {
   position: relative;
   z-index: 1;
   display: grid;
-  min-height: 690px;
+  min-height: 640px;
   grid-template-columns: minmax(0, 1.02fr) minmax(410px, 0.88fr);
   align-items: center;
   gap: clamp(2.5rem, 7vw, 7rem);
-  padding: 5.5rem 0;
+  padding: 3.5rem 0;
 }
 
 .home-hero__copy h1 {
@@ -646,30 +646,92 @@ a {
 
 /* Brand and trust strips */
 .brand-strip {
+  height: 98px;
+  overflow: hidden;
   border-bottom: 1px solid var(--line);
-  background: var(--paper);
+  background: #e8efeb;
 }
 
-.brand-strip .wrap {
+.brand-strip__inner {
   display: grid;
-  min-height: 94px;
-  grid-template-columns: 1.3fr repeat(5, auto);
+  height: 98px;
+  grid-template-columns: minmax(180px, 230px) minmax(0, 1fr);
   align-items: center;
-  gap: clamp(1.2rem, 4vw, 3.2rem);
 }
 
 .brand-strip p {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  height: 100%;
+  align-items: center;
   margin: 0;
+  background: #e8efeb;
   color: var(--muted);
+  padding-right: clamp(1rem, 3vw, 2.5rem);
   font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.11em;
+  line-height: 1.35;
   text-transform: uppercase;
 }
 
-.brand-strip strong {
-  color: var(--forest-800);
-  font: 700 1.1rem "Fraunces", Georgia, serif;
+.brand-marquee {
+  min-width: 0;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+}
+
+.brand-marquee__track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: brand-marquee-scroll 26s linear infinite;
+}
+
+.brand-marquee__group {
+  display: flex;
+  min-width: 100vw;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: space-around;
+  gap: clamp(3rem, 5vw, 5.5rem);
+  padding: 0 clamp(1.5rem, 3vw, 3rem);
+}
+
+.brand-marquee__logo {
+  display: grid;
+  height: 70px;
+  flex: 0 0 auto;
+  place-items: center;
+}
+
+.brand-marquee__logo img {
+  display: block;
+  width: auto;
+  max-width: 230px;
+  max-height: 56px;
+  object-fit: contain;
+  filter: drop-shadow(0 1px 0 rgba(8, 46, 41, 0.18));
+}
+
+.brand-marquee__logo--montego img {
+  max-height: 62px;
+}
+
+.brand-marquee__logo--jock img {
+  max-width: 245px;
+  max-height: 52px;
+}
+
+.brand-marquee__logo--marltons img {
+  max-width: 190px;
+  max-height: 50px;
+}
+
+.brand-marquee__logo--efekto img {
+  max-height: 58px;
 }
 
 .trust-grid {
@@ -802,7 +864,7 @@ a {
   overflow: hidden;
   background: var(--forest-950);
   color: var(--white);
-  padding: clamp(4.5rem, 9vw, 7.5rem) 0;
+  padding: clamp(3.5rem, 6vw, 7.5rem) 0;
 }
 
 .catalog-hero::after,
@@ -1462,7 +1524,7 @@ a {
   justify-content: center;
   border-radius: var(--radius-lg);
   background: var(--sun-500);
-  padding: clamp(2rem, 5vw, 4rem);
+  padding: clamp(1.2rem, 5vw, 4rem);
 }
 
 .location-card address {
@@ -2396,7 +2458,7 @@ body.dialog-open {
 .site-footer {
   background: var(--forest-950);
   color: var(--white);
-  padding: 4.5rem 0 1.5rem;
+  padding: 3rem 0 1.5rem;
 }
 
 .footer-grid {
@@ -2465,7 +2527,7 @@ body.dialog-open {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  margin-top: 4rem;
+  margin-top: 2.5rem;
   padding-top: 1.2rem;
   border-top: 1px solid rgba(255, 255, 255, 0.14);
   color: #9db7ae;
@@ -2558,6 +2620,12 @@ body[data-page="produtos"] .floating-whatsapp {
   }
 }
 
+@keyframes brand-marquee-scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 @media (max-width: 1120px) {
   .nav-wrap {
     min-height: 76px;
@@ -2628,14 +2696,8 @@ body[data-page="produtos"] .floating-whatsapp {
     min-height: 430px;
   }
 
-  .brand-strip .wrap {
-    grid-template-columns: repeat(5, 1fr);
-    padding: 1.3rem 0;
-    text-align: center;
-  }
-
-  .brand-strip p {
-    grid-column: 1 / -1;
+  .brand-strip__inner {
+    grid-template-columns: minmax(155px, 195px) minmax(0, 1fr);
   }
 
   .catalog-grid {
@@ -2741,13 +2803,42 @@ body[data-page="produtos"] .floating-whatsapp {
     align-items: start;
   }
 
-  .brand-strip .wrap {
-    grid-template-columns: repeat(3, 1fr);
+  .brand-strip__inner {
+    grid-template-columns: 132px minmax(0, 1fr);
   }
 
-  .brand-strip strong:nth-of-type(4),
-  .brand-strip strong:nth-of-type(5) {
-    grid-column: auto;
+  .brand-strip p {
+    padding-right: 0.8rem;
+    font-size: 0.66rem;
+    letter-spacing: 0.08em;
+  }
+
+  .brand-marquee__group {
+    gap: 3rem;
+    padding-inline: 1.5rem;
+  }
+
+  .brand-marquee__logo img {
+    max-width: 190px;
+    max-height: 49px;
+  }
+
+  .brand-marquee__logo--montego img {
+    max-height: 55px;
+  }
+
+  .brand-marquee__logo--jock img {
+    max-width: 215px;
+    max-height: 46px;
+  }
+
+  .brand-marquee__logo--marltons img {
+    max-width: 165px;
+    max-height: 44px;
+  }
+
+  .brand-marquee__logo--efekto img {
+    max-height: 51px;
   }
 
   .catalog-toolbar {
@@ -2993,7 +3084,7 @@ body[data-page="produtos"] .floating-whatsapp {
   }
 
   .section {
-    padding: 2.25rem 0;
+    padding: 1.5rem 0;
   }
 
   .section--compact {
@@ -3006,7 +3097,7 @@ body[data-page="produtos"] .floating-whatsapp {
 
   .section-head {
     gap: 1.1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.2rem;
   }
 
   .button-row {
@@ -3023,7 +3114,7 @@ body[data-page="produtos"] .floating-whatsapp {
   }
 
   .home-hero__grid {
-    padding: 3rem 0 1.75rem;
+    padding: 1.5rem 0 1.75rem;
   }
 
   .hero-art__product--dog {
@@ -3035,12 +3126,26 @@ body[data-page="produtos"] .floating-whatsapp {
     width: 46%;
   }
 
-  .brand-strip .wrap {
-    grid-template-columns: repeat(2, 1fr);
+  .brand-strip__inner {
+    grid-template-columns: 112px minmax(0, 1fr);
   }
 
   .brand-strip p {
-    grid-column: 1 / -1;
+    font-size: 0.59rem;
+  }
+
+  .brand-marquee {
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+  }
+
+  .brand-marquee__group {
+    gap: 2.5rem;
+    padding-inline: 1.2rem;
+  }
+
+  .brand-marquee__track {
+    animation-duration: 22s;
   }
 
   .catalog-hero,
@@ -3252,5 +3357,25 @@ body[data-page="produtos"] .floating-whatsapp {
   [data-reveal] {
     opacity: 1;
     transform: none;
+  }
+
+  .brand-marquee {
+    overflow-x: auto;
+    -webkit-mask-image: none;
+    mask-image: none;
+    scrollbar-width: none;
+  }
+
+  .brand-marquee::-webkit-scrollbar {
+    display: none;
+  }
+
+  .brand-marquee__track {
+    animation: none;
+    transform: none;
+  }
+
+  .brand-marquee__group[aria-hidden="true"] {
+    display: none;
   }
 }
